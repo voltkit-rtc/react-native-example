@@ -28,6 +28,13 @@ into `voltkit-rtc/*.tgz`. After publishing, `package.json` points at the registr
 
 ## Run it
 
+> **Cloned from github.com/voltkit-rtc/react-native-example?** This copy is published from the VoltKit monorepo, where
+> `package.json` installs the SDKs from local `file:` tarballs that do not exist in a standalone clone. Once
+> `@voltkit-rtc/client` 0.9.12 and `@voltkit-rtc/react-native` 0.1.0 are on npm, replace the three `file:` lines with
+> `"@voltkit-rtc/client": "0.9.12"`, `"@voltkit-rtc/react": "0.1.1"`, `"@voltkit-rtc/react-native": "0.1.0"` and run
+> `npm install`; the mirror's next release carries the registry versions already.
+
+
 1. The SDK tarballs and the app's dependencies:
 
    ```bash
