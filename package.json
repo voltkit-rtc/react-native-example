@@ -13,9 +13,9 @@
     "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test src/e2e/__tests__/"
   },
   "dependencies": {
-    "@voltkit-rtc/client": "file:../../voltkit-rtc-client-0.9.12.tgz",
-    "@voltkit-rtc/react": "file:../../voltkit-rtc-react-0.1.1.tgz",
-    "@voltkit-rtc/react-native": "file:../../voltkit-rtc-react-native-0.1.0.tgz",
+    "@voltkit-rtc/client": "^0.9.12",
+    "@voltkit-rtc/react": "^0.1.1",
+    "@voltkit-rtc/react-native": "^0.1.0",
     "expo": "58.0.19",
     "expo-build-properties": "58.0.11",
     "expo-dev-client": "58.0.15",

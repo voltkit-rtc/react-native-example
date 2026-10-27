@@ -22,29 +22,24 @@ SDK bring native code, so build the app.
 | `src/e2e/` | The scenario runner (below) |
 | `plugins/` | `with-pinned-webrtc.js` (org.jitsi:webrtc pinned to 155.0.1) and `with-e2e-network.js` (cleartext for the local test stack only) |
 
-The SDK and its peers are installed from `npm pack` tarballs until they are published: `@voltkit-rtc/client`
-0.9.12, `@voltkit-rtc/react` 0.1.1 and `@voltkit-rtc/react-native` 0.1.0, built by `make -C voltkit-rtc sdk-pack`
-into `voltkit-rtc/*.tgz`. After publishing, `package.json` points at the registry versions instead.
+The SDK and its peers come from npm: `@voltkit-rtc/client` 0.9.12, `@voltkit-rtc/react` 0.1.1 and
+`@voltkit-rtc/react-native` 0.1.0 (released 2026-10-27). To try an unpublished build instead, `make -C voltkit-rtc
+sdk-pack` writes tarballs into `voltkit-rtc/*.tgz` (step 1 below says how to install them).
 
 ## Run it
 
-> **Cloned from github.com/voltkit-rtc/react-native-example?** This copy is published from the VoltKit monorepo, where
-> `package.json` installs the SDKs from local `file:` tarballs that do not exist in a standalone clone. Once
-> `@voltkit-rtc/client` 0.9.12 and `@voltkit-rtc/react-native` 0.1.0 are on npm, replace the three `file:` lines with
-> `"@voltkit-rtc/client": "0.9.12"`, `"@voltkit-rtc/react": "0.1.1"`, `"@voltkit-rtc/react-native": "0.1.0"` and run
-> `npm install`; the mirror's next release carries the registry versions already.
-
-
-1. The SDK tarballs and the app's dependencies:
+1. The app's dependencies (the SDKs come from npm):
 
    ```bash
-   make -C voltkit-rtc sdk-pack
-   cd voltkit-rtc/examples/react-native && npm install ../../voltkit-rtc-client-0.9.12.tgz ../../voltkit-rtc-react-0.1.1.tgz ../../voltkit-rtc-react-native-0.1.0.tgz
+   cd voltkit-rtc/examples/react-native && npm install
    ```
 
-   Name the tarballs: a plain `npm install` trusts the lockfile's integrity and keeps the cached contents of a tarball
-   that changed but kept its name (a repacked SDK would never reach `node_modules`); the explicit specs re-read the
-   files and rewrite the lock.
+   To test an unpublished SDK build, pack it and name the tarballs: `make -C voltkit-rtc sdk-pack`, then
+   `npm install ../../voltkit-rtc-client-0.9.12.tgz ../../voltkit-rtc-react-0.1.1.tgz ../../voltkit-rtc-react-native-0.1.0.tgz`.
+   Name them: a plain `npm install` trusts the lockfile's integrity and keeps the cached contents of a tarball that
+   changed but kept its name (a repacked SDK would never reach `node_modules`); the explicit specs re-read the files
+   and rewrite the lock. Put the registry versions back before committing:
+   `npm install @voltkit-rtc/client@0.9.12 @voltkit-rtc/react@0.1.1 @voltkit-rtc/react-native@0.1.0`.
 
 2. The token server, with your project's RTC URL and secret (or the local test stack's: `scripts/test/rn-stack.sh up`,
    then `VOLTKIT_RTC_URL=http://127.0.0.1:18498` and the `BOOTSTRAP_API_KEY` from `voltkit-rtc/.rn-stack/.env`):
