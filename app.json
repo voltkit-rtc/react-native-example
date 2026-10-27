@@ -1,0 +1,62 @@
+{
+  "expo": {
+    "name": "VoltKit RTC",
+    "slug": "voltkit-rtc-react-native-example",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "voltkitrn",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "bundleIdentifier": "com.voltkit.rtc.example",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.voltkit.rtc.example",
+      "predictiveBackGestureEnabled": false,
+      "blockedPermissions": [
+        "android.permission.SYSTEM_ALERT_WINDOW",
+        "android.permission.VIBRATE",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "plugins": [
+      [
+        "@voltkit-rtc/react-native",
+        {
+          "cameraPermission": "Your camera is shown to the people in your call.",
+          "microphonePermission": "Your microphone is heard by the people in your call.",
+          "android": {
+            "screenShare": true
+          }
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 24,
+            "enableMinifyInReleaseBuilds": true,
+            "enableShrinkResourcesInReleaseBuilds": true
+          }
+        }
+      ],
+      [
+        "./plugins/with-pinned-webrtc.js",
+        {
+          "version": "155.0.1"
+        }
+      ],
+      [
+        "./plugins/with-e2e-network.js",
+        {
+          "hosts": [
+            "10.0.2.2",
+            "127.0.0.1",
+            "localhost"
+          ]
+        }
+      ]
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true
+  },
+  "exclude": [
+    "node_modules",
+    "android",
+    "ios",
+    "server",
+    "src/e2e/__tests__",
+    "babel.config.js",
+    "metro.config.js"
+  ]
+}
